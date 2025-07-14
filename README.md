@@ -87,10 +87,8 @@ cd SimpleTimeService
 2. **Run** the container:
 
    ```bash
-   docker run -d \
-     --name simple-timeservice \
-     -p 5000:5000 \
-     simple-timeservice:latest
+   docker run $(docker images -q | head -n1)
+
    ```
 3. **Test**:
 
@@ -104,12 +102,24 @@ cd SimpleTimeService
 
 All Terraform code lives under `terraform/`.
 
-1. **Configure your AWS variables** (either via environment variables or by passing the values in  `terraform/variable.tf`):
+1. **Configure your AWS variables** (by passing the values in  `terraform/variable.tf`):
 
-   ```bash
-   export TF_VAR_region=us-east-1
-   export TF_VAR_access_key=YOUR_AWS_ACCESS_KEY
-   export TF_VAR_secret_key=YOUR_AWS_SECRET_KEY
+   ```terraform
+   variable "access_key" {
+    description = "Access key of IAM user"
+    type = string
+    default = "" ###Use your IAM user access keys.
+    }
+    variable "secret_key" {
+    description = "Secret key of IAM user"
+    type = string
+    default = "" ###Use your IAM user secret keys.
+    }
+    variable "region" {
+    description = "Region where the resources needs to deployed"
+    type = string
+    default = "" ###Use the region of your choice.
+    }
    ```
 2. **Initialize** Terraform:
 
