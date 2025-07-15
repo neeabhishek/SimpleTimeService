@@ -52,7 +52,7 @@ cd SimpleTimeService
 2. Install dependencies:
 
    ```bash
-   pip install flask
+   pip install flask or pip install -r requirement.txt
    ```
 3. Start the server:
 
@@ -208,8 +208,8 @@ spec:
 * **Local Docker**:
 
   ```bash
-  docker rm -f simple-timeservice
-  docker rmi simple-timeservice:latest
+  docker rm -f $(docker ps -q | head -n1)
+  docker rmi $(docker images -q | head -n1)
   ```
 * **Terraform / AWS**:
 
