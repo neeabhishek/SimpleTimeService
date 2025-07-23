@@ -140,8 +140,9 @@ All Terraform code lives under `terraform/`.
 5. **Configure kubectl** to talk to your new EKS cluster:
 
    ```bash
-   aws eks --region ${AWS_Region} \
-     update-kubeconfig --name eks-particle41
+   aws eks update-kubeconfig \
+      --region ${AWS_Region} \
+      --name eks-particle41
    ```
 
 Create a Kubernetes Deployment & Service manifest to run your Docker image on the cluster.*
