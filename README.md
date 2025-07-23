@@ -200,7 +200,7 @@ spec:
 ## 🔗 Accessing the Service
 
 * **Locally (Docker)**: `http://localhost:5000`
-* **On EKS**: `http://${EKS_ENDPOINT}:5000`
+* **On EKS**: `http://${ELB}:5000`
 ---
 
 ## 🧹 Cleanup
