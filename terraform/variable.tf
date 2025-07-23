@@ -6,7 +6,7 @@ variable "cidr" {
 
 variable "region" {
     type = string
-    default = "ap-south-1"
+    default = ""
     description = "Region where the N/W component and EKS will be provisioned"  
 }
 
