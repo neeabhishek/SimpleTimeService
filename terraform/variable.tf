@@ -1,15 +1,32 @@
-variable "access_key" {
-    description = "Access key of IAM user"
+variable "cidr" {
     type = string
-    default = "" ###Use your IAM user access keys.
+    default = "10.0.0.0/16"
+    description = "CIDR Block for EKS-VPC"
 }
-variable "secret_key" {
-    description = "Secret key of IAM user"
-    type = string
-    default = "" ###Use your IAM user secret keys.
-}
+
 variable "region" {
-    description = "Region where the resources needs to deployed"
     type = string
-    default = "" ###Use the region of your choice.
+    default = "ap-south-1"
+    description = "Region where the N/W component and EKS will be provisioned"  
+}
+
+variable "access_key" {
+    type = string
+    default = ""
+    description = "IAM user access keys"
+}
+
+variable "secret_key" {
+    type = string
+    default = ""
+    description = "IAM user secret keys"
+}
+
+variable "cluster_name" {
+    type = string
+    default = "dev-eks"
+}
+variable "iam_user" {
+    type = string
+    default = "eks-admin"
 }
